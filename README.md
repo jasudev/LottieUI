@@ -9,7 +9,7 @@ It is a library developed to make Lottie easy to implement. It supports iOS and 
 [![MIT](https://img.shields.io/badge/licenses-MIT-red.svg)](https://opensource.org/licenses/MIT)  
 
 ## Screenshot
-
+https://user-images.githubusercontent.com/1617304/153740565-52e8fb67-c548-4124-a803-fa75c287cd6d.mp4
 
 ## Example
 [https://fabulaapp.page.link/225](https://fabulaapp.page.link/225)
