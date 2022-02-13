@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Lottie",
+        "repositoryURL": "https://github.com/airbnb/lottie-ios.git",
+        "state": {
+          "branch": "master",
+          "revision": "0ba8b64d572b37966309bf5705afe8e6aa76b7e0",
+          "version": null
+        }
+      },
+      {
+        "package": "Scroller",
+        "repositoryURL": "https://github.com/jasudev/Scroller.git",
+        "state": {
+          "branch": "main",
+          "revision": "fd500bd727ebdbcf0057641c8021067330a446fb",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

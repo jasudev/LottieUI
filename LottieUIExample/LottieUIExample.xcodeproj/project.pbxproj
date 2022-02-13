@@ -1,0 +1,794 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B2AF08527B7829B00C50BE0 /* LottieUIExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2AF07527B7829B00C50BE0 /* LottieUIExampleApp.swift */; };
+		4B2AF08627B7829B00C50BE0 /* LottieUIExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2AF07527B7829B00C50BE0 /* LottieUIExampleApp.swift */; };
+		4B2AF08727B7829B00C50BE0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2AF07627B7829B00C50BE0 /* ContentView.swift */; };
+		4B2AF08827B7829B00C50BE0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2AF07627B7829B00C50BE0 /* ContentView.swift */; };
+		4B2AF08927B7829B00C50BE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B2AF07727B7829B00C50BE0 /* Assets.xcassets */; };
+		4B2AF08A27B7829B00C50BE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B2AF07727B7829B00C50BE0 /* Assets.xcassets */; };
+		4B2AF09727B782C900C50BE0 /* LottieUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4B2AF09627B782C900C50BE0 /* LottieUI */; };
+		4B2AF09927B782CD00C50BE0 /* LottieUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4B2AF09827B782CD00C50BE0 /* LottieUI */; };
+		4B2AF0A227B7C87B00C50BE0 /* CustomStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2AF0A127B7C87B00C50BE0 /* CustomStateView.swift */; };
+		4B2AF0A327B7C87B00C50BE0 /* CustomStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2AF0A127B7C87B00C50BE0 /* CustomStateView.swift */; };
+		4B2DC07A27B8B50C00EC7D43 /* bubble2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B2DC07927B8B50B00EC7D43 /* bubble2.json */; };
+		4B2DC07B27B8B50C00EC7D43 /* bubble2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B2DC07927B8B50B00EC7D43 /* bubble2.json */; };
+		4B69310127B7CD94004F6DC2 /* LottieLogo1_masked.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310027B7CD94004F6DC2 /* LottieLogo1_masked.json */; };
+		4B69310227B7CD94004F6DC2 /* LottieLogo1_masked.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310027B7CD94004F6DC2 /* LottieLogo1_masked.json */; };
+		4B69310427B7CDB2004F6DC2 /* LottieLogo2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310327B7CDB2004F6DC2 /* LottieLogo2.json */; };
+		4B69310527B7CDB2004F6DC2 /* LottieLogo2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310327B7CDB2004F6DC2 /* LottieLogo2.json */; };
+		4B69312827B7CE64004F6DC2 /* F.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310A27B7CE63004F6DC2 /* F.json */; };
+		4B69312927B7CE64004F6DC2 /* F.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310A27B7CE63004F6DC2 /* F.json */; };
+		4B69312A27B7CE64004F6DC2 /* O.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310B27B7CE63004F6DC2 /* O.json */; };
+		4B69312B27B7CE64004F6DC2 /* O.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310B27B7CE63004F6DC2 /* O.json */; };
+		4B69312C27B7CE64004F6DC2 /* P.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310C27B7CE63004F6DC2 /* P.json */; };
+		4B69312D27B7CE64004F6DC2 /* P.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310C27B7CE63004F6DC2 /* P.json */; };
+		4B69312E27B7CE64004F6DC2 /* D.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310D27B7CE63004F6DC2 /* D.json */; };
+		4B69312F27B7CE64004F6DC2 /* D.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310D27B7CE63004F6DC2 /* D.json */; };
+		4B69313027B7CE64004F6DC2 /* E.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310E27B7CE63004F6DC2 /* E.json */; };
+		4B69313127B7CE64004F6DC2 /* E.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310E27B7CE63004F6DC2 /* E.json */; };
+		4B69313227B7CE64004F6DC2 /* Apostrophe.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310F27B7CE63004F6DC2 /* Apostrophe.json */; };
+		4B69313327B7CE64004F6DC2 /* Apostrophe.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69310F27B7CE63004F6DC2 /* Apostrophe.json */; };
+		4B69313427B7CE64004F6DC2 /* J.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311027B7CE64004F6DC2 /* J.json */; };
+		4B69313527B7CE64004F6DC2 /* J.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311027B7CE64004F6DC2 /* J.json */; };
+		4B69313627B7CE64004F6DC2 /* R.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311127B7CE64004F6DC2 /* R.json */; };
+		4B69313727B7CE64004F6DC2 /* R.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311127B7CE64004F6DC2 /* R.json */; };
+		4B69313827B7CE64004F6DC2 /* T.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311227B7CE64004F6DC2 /* T.json */; };
+		4B69313927B7CE64004F6DC2 /* T.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311227B7CE64004F6DC2 /* T.json */; };
+		4B69313A27B7CE64004F6DC2 /* S.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311327B7CE64004F6DC2 /* S.json */; };
+		4B69313B27B7CE64004F6DC2 /* S.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311327B7CE64004F6DC2 /* S.json */; };
+		4B69313C27B7CE64004F6DC2 /* G.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311427B7CE64004F6DC2 /* G.json */; };
+		4B69313D27B7CE64004F6DC2 /* G.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311427B7CE64004F6DC2 /* G.json */; };
+		4B69313E27B7CE64004F6DC2 /* V.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311527B7CE64004F6DC2 /* V.json */; };
+		4B69313F27B7CE64004F6DC2 /* V.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311527B7CE64004F6DC2 /* V.json */; };
+		4B69314027B7CE64004F6DC2 /* L.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311627B7CE64004F6DC2 /* L.json */; };
+		4B69314127B7CE64004F6DC2 /* L.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311627B7CE64004F6DC2 /* L.json */; };
+		4B69314227B7CE64004F6DC2 /* BlinkingCursor.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311727B7CE64004F6DC2 /* BlinkingCursor.json */; };
+		4B69314327B7CE64004F6DC2 /* BlinkingCursor.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311727B7CE64004F6DC2 /* BlinkingCursor.json */; };
+		4B69314427B7CE64004F6DC2 /* Y.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311827B7CE64004F6DC2 /* Y.json */; };
+		4B69314527B7CE64004F6DC2 /* Y.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311827B7CE64004F6DC2 /* Y.json */; };
+		4B69314627B7CE64004F6DC2 /* M.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311927B7CE64004F6DC2 /* M.json */; };
+		4B69314727B7CE64004F6DC2 /* M.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311927B7CE64004F6DC2 /* M.json */; };
+		4B69314827B7CE64004F6DC2 /* U.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311A27B7CE64004F6DC2 /* U.json */; };
+		4B69314927B7CE64004F6DC2 /* U.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311A27B7CE64004F6DC2 /* U.json */; };
+		4B69314A27B7CE64004F6DC2 /* X.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311B27B7CE64004F6DC2 /* X.json */; };
+		4B69314B27B7CE64004F6DC2 /* X.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311B27B7CE64004F6DC2 /* X.json */; };
+		4B69314C27B7CE64004F6DC2 /* N.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311C27B7CE64004F6DC2 /* N.json */; };
+		4B69314D27B7CE64004F6DC2 /* N.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311C27B7CE64004F6DC2 /* N.json */; };
+		4B69314E27B7CE64004F6DC2 /* I.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311D27B7CE64004F6DC2 /* I.json */; };
+		4B69314F27B7CE64004F6DC2 /* I.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311D27B7CE64004F6DC2 /* I.json */; };
+		4B69315027B7CE64004F6DC2 /* A.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311E27B7CE64004F6DC2 /* A.json */; };
+		4B69315127B7CE64004F6DC2 /* A.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311E27B7CE64004F6DC2 /* A.json */; };
+		4B69315227B7CE64004F6DC2 /* Comma.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311F27B7CE64004F6DC2 /* Comma.json */; };
+		4B69315327B7CE64004F6DC2 /* Comma.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69311F27B7CE64004F6DC2 /* Comma.json */; };
+		4B69315427B7CE64004F6DC2 /* B.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312027B7CE64004F6DC2 /* B.json */; };
+		4B69315527B7CE64004F6DC2 /* B.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312027B7CE64004F6DC2 /* B.json */; };
+		4B69315627B7CE65004F6DC2 /* Z.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312127B7CE64004F6DC2 /* Z.json */; };
+		4B69315727B7CE65004F6DC2 /* Z.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312127B7CE64004F6DC2 /* Z.json */; };
+		4B69315827B7CE65004F6DC2 /* W.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312227B7CE64004F6DC2 /* W.json */; };
+		4B69315927B7CE65004F6DC2 /* W.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312227B7CE64004F6DC2 /* W.json */; };
+		4B69315A27B7CE65004F6DC2 /* C.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312327B7CE64004F6DC2 /* C.json */; };
+		4B69315B27B7CE65004F6DC2 /* C.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312327B7CE64004F6DC2 /* C.json */; };
+		4B69315C27B7CE65004F6DC2 /* Q.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312427B7CE64004F6DC2 /* Q.json */; };
+		4B69315D27B7CE65004F6DC2 /* Q.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312427B7CE64004F6DC2 /* Q.json */; };
+		4B69315E27B7CE65004F6DC2 /* Colon.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312527B7CE64004F6DC2 /* Colon.json */; };
+		4B69315F27B7CE65004F6DC2 /* Colon.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312527B7CE64004F6DC2 /* Colon.json */; };
+		4B69316027B7CE65004F6DC2 /* K.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312627B7CE64004F6DC2 /* K.json */; };
+		4B69316127B7CE65004F6DC2 /* K.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312627B7CE64004F6DC2 /* K.json */; };
+		4B69316227B7CE65004F6DC2 /* H.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312727B7CE64004F6DC2 /* H.json */; };
+		4B69316327B7CE65004F6DC2 /* H.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69312727B7CE64004F6DC2 /* H.json */; };
+		4B69316527B7D080004F6DC2 /* PinJump.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69316427B7D080004F6DC2 /* PinJump.json */; };
+		4B69316627B7D080004F6DC2 /* PinJump.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69316427B7D080004F6DC2 /* PinJump.json */; };
+		4B69316827B7D097004F6DC2 /* TwitterHeart.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69316727B7D097004F6DC2 /* TwitterHeart.json */; };
+		4B69316927B7D097004F6DC2 /* TwitterHeart.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69316727B7D097004F6DC2 /* TwitterHeart.json */; };
+		4B69316B27B7D332004F6DC2 /* LottieLogo1.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69316A27B7D332004F6DC2 /* LottieLogo1.json */; };
+		4B69316C27B7D332004F6DC2 /* LottieLogo1.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69316A27B7D332004F6DC2 /* LottieLogo1.json */; };
+		4B69317227B7E832004F6DC2 /* Scroller in Frameworks */ = {isa = PBXBuildFile; productRef = 4B69317127B7E832004F6DC2 /* Scroller */; };
+		4B69317427B7E840004F6DC2 /* Scroller in Frameworks */ = {isa = PBXBuildFile; productRef = 4B69317327B7E840004F6DC2 /* Scroller */; };
+		4B69317627B7EAAD004F6DC2 /* ScrollerLottieContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B69317527B7EAAD004F6DC2 /* ScrollerLottieContent.swift */; };
+		4B69317727B7EAAD004F6DC2 /* ScrollerLottieContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B69317527B7EAAD004F6DC2 /* ScrollerLottieContent.swift */; };
+		4B69317C27B7F02B004F6DC2 /* tree1.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69317B27B7F02B004F6DC2 /* tree1.json */; };
+		4B69317D27B7F02B004F6DC2 /* tree1.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69317B27B7F02B004F6DC2 /* tree1.json */; };
+		4B69317F27B7F05E004F6DC2 /* tree2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69317E27B7F05E004F6DC2 /* tree2.json */; };
+		4B69318027B7F05E004F6DC2 /* tree2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69317E27B7F05E004F6DC2 /* tree2.json */; };
+		4B69318227B7F077004F6DC2 /* tree3.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69318127B7F077004F6DC2 /* tree3.json */; };
+		4B69318327B7F077004F6DC2 /* tree3.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69318127B7F077004F6DC2 /* tree3.json */; };
+		4B69318527B7FB42004F6DC2 /* bubble1.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69318427B7FB42004F6DC2 /* bubble1.json */; };
+		4B69318627B7FB42004F6DC2 /* bubble1.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B69318427B7FB42004F6DC2 /* bubble1.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4B2AF07527B7829B00C50BE0 /* LottieUIExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieUIExampleApp.swift; sourceTree = "<group>"; };
+		4B2AF07627B7829B00C50BE0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4B2AF07727B7829B00C50BE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4B2AF07C27B7829B00C50BE0 /* LottieUIExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottieUIExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B2AF08227B7829B00C50BE0 /* LottieUIExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottieUIExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B2AF08427B7829B00C50BE0 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		4B2AF09427B782B400C50BE0 /* LottieUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LottieUI; path = ..; sourceTree = "<group>"; };
+		4B2AF0A127B7C87B00C50BE0 /* CustomStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStateView.swift; sourceTree = "<group>"; };
+		4B2DC07927B8B50B00EC7D43 /* bubble2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bubble2.json; sourceTree = "<group>"; };
+		4B69310027B7CD94004F6DC2 /* LottieLogo1_masked.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LottieLogo1_masked.json; sourceTree = "<group>"; };
+		4B69310327B7CDB2004F6DC2 /* LottieLogo2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LottieLogo2.json; sourceTree = "<group>"; };
+		4B69310A27B7CE63004F6DC2 /* F.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = F.json; sourceTree = "<group>"; };
+		4B69310B27B7CE63004F6DC2 /* O.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = O.json; sourceTree = "<group>"; };
+		4B69310C27B7CE63004F6DC2 /* P.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = P.json; sourceTree = "<group>"; };
+		4B69310D27B7CE63004F6DC2 /* D.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = D.json; sourceTree = "<group>"; };
+		4B69310E27B7CE63004F6DC2 /* E.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = E.json; sourceTree = "<group>"; };
+		4B69310F27B7CE63004F6DC2 /* Apostrophe.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Apostrophe.json; sourceTree = "<group>"; };
+		4B69311027B7CE64004F6DC2 /* J.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = J.json; sourceTree = "<group>"; };
+		4B69311127B7CE64004F6DC2 /* R.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = R.json; sourceTree = "<group>"; };
+		4B69311227B7CE64004F6DC2 /* T.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = T.json; sourceTree = "<group>"; };
+		4B69311327B7CE64004F6DC2 /* S.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = S.json; sourceTree = "<group>"; };
+		4B69311427B7CE64004F6DC2 /* G.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = G.json; sourceTree = "<group>"; };
+		4B69311527B7CE64004F6DC2 /* V.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = V.json; sourceTree = "<group>"; };
+		4B69311627B7CE64004F6DC2 /* L.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = L.json; sourceTree = "<group>"; };
+		4B69311727B7CE64004F6DC2 /* BlinkingCursor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BlinkingCursor.json; sourceTree = "<group>"; };
+		4B69311827B7CE64004F6DC2 /* Y.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Y.json; sourceTree = "<group>"; };
+		4B69311927B7CE64004F6DC2 /* M.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = M.json; sourceTree = "<group>"; };
+		4B69311A27B7CE64004F6DC2 /* U.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = U.json; sourceTree = "<group>"; };
+		4B69311B27B7CE64004F6DC2 /* X.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = X.json; sourceTree = "<group>"; };
+		4B69311C27B7CE64004F6DC2 /* N.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = N.json; sourceTree = "<group>"; };
+		4B69311D27B7CE64004F6DC2 /* I.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = I.json; sourceTree = "<group>"; };
+		4B69311E27B7CE64004F6DC2 /* A.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = A.json; sourceTree = "<group>"; };
+		4B69311F27B7CE64004F6DC2 /* Comma.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Comma.json; sourceTree = "<group>"; };
+		4B69312027B7CE64004F6DC2 /* B.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = B.json; sourceTree = "<group>"; };
+		4B69312127B7CE64004F6DC2 /* Z.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Z.json; sourceTree = "<group>"; };
+		4B69312227B7CE64004F6DC2 /* W.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = W.json; sourceTree = "<group>"; };
+		4B69312327B7CE64004F6DC2 /* C.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = C.json; sourceTree = "<group>"; };
+		4B69312427B7CE64004F6DC2 /* Q.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Q.json; sourceTree = "<group>"; };
+		4B69312527B7CE64004F6DC2 /* Colon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Colon.json; sourceTree = "<group>"; };
+		4B69312627B7CE64004F6DC2 /* K.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = K.json; sourceTree = "<group>"; };
+		4B69312727B7CE64004F6DC2 /* H.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = H.json; sourceTree = "<group>"; };
+		4B69316427B7D080004F6DC2 /* PinJump.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PinJump.json; sourceTree = "<group>"; };
+		4B69316727B7D097004F6DC2 /* TwitterHeart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TwitterHeart.json; sourceTree = "<group>"; };
+		4B69316A27B7D332004F6DC2 /* LottieLogo1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LottieLogo1.json; sourceTree = "<group>"; };
+		4B69317527B7EAAD004F6DC2 /* ScrollerLottieContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollerLottieContent.swift; sourceTree = "<group>"; };
+		4B69317B27B7F02B004F6DC2 /* tree1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tree1.json; sourceTree = "<group>"; };
+		4B69317E27B7F05E004F6DC2 /* tree2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tree2.json; sourceTree = "<group>"; };
+		4B69318127B7F077004F6DC2 /* tree3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tree3.json; sourceTree = "<group>"; };
+		4B69318427B7FB42004F6DC2 /* bubble1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bubble1.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B2AF07927B7829B00C50BE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B69317227B7E832004F6DC2 /* Scroller in Frameworks */,
+				4B2AF09727B782C900C50BE0 /* LottieUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B2AF07F27B7829B00C50BE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B69317427B7E840004F6DC2 /* Scroller in Frameworks */,
+				4B2AF09927B782CD00C50BE0 /* LottieUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B2AF06F27B7829B00C50BE0 = {
+			isa = PBXGroup;
+			children = (
+				4B2AF09327B782B400C50BE0 /* Packages */,
+				4B2AF07427B7829B00C50BE0 /* Shared */,
+				4B2AF08327B7829B00C50BE0 /* macOS */,
+				4B2AF07D27B7829B00C50BE0 /* Products */,
+				4B2AF09527B782C900C50BE0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4B2AF07427B7829B00C50BE0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4B2AF07527B7829B00C50BE0 /* LottieUIExampleApp.swift */,
+				4B2AF07627B7829B00C50BE0 /* ContentView.swift */,
+				4B69317527B7EAAD004F6DC2 /* ScrollerLottieContent.swift */,
+				4B2AF0A127B7C87B00C50BE0 /* CustomStateView.swift */,
+				4B2AF09A27B797EF00C50BE0 /* Resources */,
+				4B2AF07727B7829B00C50BE0 /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		4B2AF07D27B7829B00C50BE0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B2AF07C27B7829B00C50BE0 /* LottieUIExample.app */,
+				4B2AF08227B7829B00C50BE0 /* LottieUIExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4B2AF08327B7829B00C50BE0 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				4B2AF08427B7829B00C50BE0 /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		4B2AF09327B782B400C50BE0 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				4B2AF09427B782B400C50BE0 /* LottieUI */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		4B2AF09527B782C900C50BE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4B2AF09A27B797EF00C50BE0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4B69310927B7CE3E004F6DC2 /* TypeFace */,
+				4B69310027B7CD94004F6DC2 /* LottieLogo1_masked.json */,
+				4B69318427B7FB42004F6DC2 /* bubble1.json */,
+				4B2DC07927B8B50B00EC7D43 /* bubble2.json */,
+				4B69317B27B7F02B004F6DC2 /* tree1.json */,
+				4B69317E27B7F05E004F6DC2 /* tree2.json */,
+				4B69318127B7F077004F6DC2 /* tree3.json */,
+				4B69316A27B7D332004F6DC2 /* LottieLogo1.json */,
+				4B69310327B7CDB2004F6DC2 /* LottieLogo2.json */,
+				4B69316727B7D097004F6DC2 /* TwitterHeart.json */,
+				4B69316427B7D080004F6DC2 /* PinJump.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4B69310927B7CE3E004F6DC2 /* TypeFace */ = {
+			isa = PBXGroup;
+			children = (
+				4B69311E27B7CE64004F6DC2 /* A.json */,
+				4B69310F27B7CE63004F6DC2 /* Apostrophe.json */,
+				4B69312027B7CE64004F6DC2 /* B.json */,
+				4B69311727B7CE64004F6DC2 /* BlinkingCursor.json */,
+				4B69312327B7CE64004F6DC2 /* C.json */,
+				4B69312527B7CE64004F6DC2 /* Colon.json */,
+				4B69311F27B7CE64004F6DC2 /* Comma.json */,
+				4B69310D27B7CE63004F6DC2 /* D.json */,
+				4B69310E27B7CE63004F6DC2 /* E.json */,
+				4B69310A27B7CE63004F6DC2 /* F.json */,
+				4B69311427B7CE64004F6DC2 /* G.json */,
+				4B69312727B7CE64004F6DC2 /* H.json */,
+				4B69311D27B7CE64004F6DC2 /* I.json */,
+				4B69311027B7CE64004F6DC2 /* J.json */,
+				4B69312627B7CE64004F6DC2 /* K.json */,
+				4B69311627B7CE64004F6DC2 /* L.json */,
+				4B69311927B7CE64004F6DC2 /* M.json */,
+				4B69311C27B7CE64004F6DC2 /* N.json */,
+				4B69310B27B7CE63004F6DC2 /* O.json */,
+				4B69310C27B7CE63004F6DC2 /* P.json */,
+				4B69312427B7CE64004F6DC2 /* Q.json */,
+				4B69311127B7CE64004F6DC2 /* R.json */,
+				4B69311327B7CE64004F6DC2 /* S.json */,
+				4B69311227B7CE64004F6DC2 /* T.json */,
+				4B69311A27B7CE64004F6DC2 /* U.json */,
+				4B69311527B7CE64004F6DC2 /* V.json */,
+				4B69312227B7CE64004F6DC2 /* W.json */,
+				4B69311B27B7CE64004F6DC2 /* X.json */,
+				4B69311827B7CE64004F6DC2 /* Y.json */,
+				4B69312127B7CE64004F6DC2 /* Z.json */,
+			);
+			path = TypeFace;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4B2AF07B27B7829B00C50BE0 /* LottieUIExample (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B2AF08D27B7829B00C50BE0 /* Build configuration list for PBXNativeTarget "LottieUIExample (iOS)" */;
+			buildPhases = (
+				4B2AF07827B7829B00C50BE0 /* Sources */,
+				4B2AF07927B7829B00C50BE0 /* Frameworks */,
+				4B2AF07A27B7829B00C50BE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LottieUIExample (iOS)";
+			packageProductDependencies = (
+				4B2AF09627B782C900C50BE0 /* LottieUI */,
+				4B69317127B7E832004F6DC2 /* Scroller */,
+			);
+			productName = "LottieUIExample (iOS)";
+			productReference = 4B2AF07C27B7829B00C50BE0 /* LottieUIExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4B2AF08127B7829B00C50BE0 /* LottieUIExample (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B2AF09027B7829B00C50BE0 /* Build configuration list for PBXNativeTarget "LottieUIExample (macOS)" */;
+			buildPhases = (
+				4B2AF07E27B7829B00C50BE0 /* Sources */,
+				4B2AF07F27B7829B00C50BE0 /* Frameworks */,
+				4B2AF08027B7829B00C50BE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LottieUIExample (macOS)";
+			packageProductDependencies = (
+				4B2AF09827B782CD00C50BE0 /* LottieUI */,
+				4B69317327B7E840004F6DC2 /* Scroller */,
+			);
+			productName = "LottieUIExample (macOS)";
+			productReference = 4B2AF08227B7829B00C50BE0 /* LottieUIExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4B2AF07027B7829B00C50BE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					4B2AF07B27B7829B00C50BE0 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					4B2AF08127B7829B00C50BE0 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 4B2AF07327B7829B00C50BE0 /* Build configuration list for PBXProject "LottieUIExample" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4B2AF06F27B7829B00C50BE0;
+			packageReferences = (
+				4B69317027B7E832004F6DC2 /* XCRemoteSwiftPackageReference "Scroller" */,
+			);
+			productRefGroup = 4B2AF07D27B7829B00C50BE0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B2AF07B27B7829B00C50BE0 /* LottieUIExample (iOS) */,
+				4B2AF08127B7829B00C50BE0 /* LottieUIExample (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4B2AF07A27B7829B00C50BE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B69315427B7CE64004F6DC2 /* B.json in Resources */,
+				4B69313A27B7CE64004F6DC2 /* S.json in Resources */,
+				4B69314A27B7CE64004F6DC2 /* X.json in Resources */,
+				4B69316227B7CE65004F6DC2 /* H.json in Resources */,
+				4B2DC07A27B8B50C00EC7D43 /* bubble2.json in Resources */,
+				4B69313427B7CE64004F6DC2 /* J.json in Resources */,
+				4B69312E27B7CE64004F6DC2 /* D.json in Resources */,
+				4B69312A27B7CE64004F6DC2 /* O.json in Resources */,
+				4B69318527B7FB42004F6DC2 /* bubble1.json in Resources */,
+				4B69312827B7CE64004F6DC2 /* F.json in Resources */,
+				4B69314427B7CE64004F6DC2 /* Y.json in Resources */,
+				4B69313E27B7CE64004F6DC2 /* V.json in Resources */,
+				4B69315A27B7CE65004F6DC2 /* C.json in Resources */,
+				4B69315827B7CE65004F6DC2 /* W.json in Resources */,
+				4B69314C27B7CE64004F6DC2 /* N.json in Resources */,
+				4B69313627B7CE64004F6DC2 /* R.json in Resources */,
+				4B69313027B7CE64004F6DC2 /* E.json in Resources */,
+				4B69313827B7CE64004F6DC2 /* T.json in Resources */,
+				4B69315C27B7CE65004F6DC2 /* Q.json in Resources */,
+				4B69312C27B7CE64004F6DC2 /* P.json in Resources */,
+				4B69315227B7CE64004F6DC2 /* Comma.json in Resources */,
+				4B69314027B7CE64004F6DC2 /* L.json in Resources */,
+				4B69315E27B7CE65004F6DC2 /* Colon.json in Resources */,
+				4B69310127B7CD94004F6DC2 /* LottieLogo1_masked.json in Resources */,
+				4B69310427B7CDB2004F6DC2 /* LottieLogo2.json in Resources */,
+				4B69315627B7CE65004F6DC2 /* Z.json in Resources */,
+				4B69313C27B7CE64004F6DC2 /* G.json in Resources */,
+				4B69316527B7D080004F6DC2 /* PinJump.json in Resources */,
+				4B69314E27B7CE64004F6DC2 /* I.json in Resources */,
+				4B69316827B7D097004F6DC2 /* TwitterHeart.json in Resources */,
+				4B69316027B7CE65004F6DC2 /* K.json in Resources */,
+				4B69317F27B7F05E004F6DC2 /* tree2.json in Resources */,
+				4B69314827B7CE64004F6DC2 /* U.json in Resources */,
+				4B69314227B7CE64004F6DC2 /* BlinkingCursor.json in Resources */,
+				4B69318227B7F077004F6DC2 /* tree3.json in Resources */,
+				4B69317C27B7F02B004F6DC2 /* tree1.json in Resources */,
+				4B69316B27B7D332004F6DC2 /* LottieLogo1.json in Resources */,
+				4B69314627B7CE64004F6DC2 /* M.json in Resources */,
+				4B69313227B7CE64004F6DC2 /* Apostrophe.json in Resources */,
+				4B2AF08927B7829B00C50BE0 /* Assets.xcassets in Resources */,
+				4B69315027B7CE64004F6DC2 /* A.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B2AF08027B7829B00C50BE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B69315527B7CE64004F6DC2 /* B.json in Resources */,
+				4B69313B27B7CE64004F6DC2 /* S.json in Resources */,
+				4B69314B27B7CE64004F6DC2 /* X.json in Resources */,
+				4B69316327B7CE65004F6DC2 /* H.json in Resources */,
+				4B2DC07B27B8B50C00EC7D43 /* bubble2.json in Resources */,
+				4B69313527B7CE64004F6DC2 /* J.json in Resources */,
+				4B69312F27B7CE64004F6DC2 /* D.json in Resources */,
+				4B69312B27B7CE64004F6DC2 /* O.json in Resources */,
+				4B69318627B7FB42004F6DC2 /* bubble1.json in Resources */,
+				4B69312927B7CE64004F6DC2 /* F.json in Resources */,
+				4B69314527B7CE64004F6DC2 /* Y.json in Resources */,
+				4B69313F27B7CE64004F6DC2 /* V.json in Resources */,
+				4B69315B27B7CE65004F6DC2 /* C.json in Resources */,
+				4B69315927B7CE65004F6DC2 /* W.json in Resources */,
+				4B69314D27B7CE64004F6DC2 /* N.json in Resources */,
+				4B69313727B7CE64004F6DC2 /* R.json in Resources */,
+				4B69313127B7CE64004F6DC2 /* E.json in Resources */,
+				4B69313927B7CE64004F6DC2 /* T.json in Resources */,
+				4B69315D27B7CE65004F6DC2 /* Q.json in Resources */,
+				4B69312D27B7CE64004F6DC2 /* P.json in Resources */,
+				4B69315327B7CE64004F6DC2 /* Comma.json in Resources */,
+				4B69314127B7CE64004F6DC2 /* L.json in Resources */,
+				4B69315F27B7CE65004F6DC2 /* Colon.json in Resources */,
+				4B69310227B7CD94004F6DC2 /* LottieLogo1_masked.json in Resources */,
+				4B69310527B7CDB2004F6DC2 /* LottieLogo2.json in Resources */,
+				4B69315727B7CE65004F6DC2 /* Z.json in Resources */,
+				4B69313D27B7CE64004F6DC2 /* G.json in Resources */,
+				4B69316627B7D080004F6DC2 /* PinJump.json in Resources */,
+				4B69314F27B7CE64004F6DC2 /* I.json in Resources */,
+				4B69316927B7D097004F6DC2 /* TwitterHeart.json in Resources */,
+				4B69316127B7CE65004F6DC2 /* K.json in Resources */,
+				4B69318027B7F05E004F6DC2 /* tree2.json in Resources */,
+				4B69314927B7CE64004F6DC2 /* U.json in Resources */,
+				4B69314327B7CE64004F6DC2 /* BlinkingCursor.json in Resources */,
+				4B69318327B7F077004F6DC2 /* tree3.json in Resources */,
+				4B69317D27B7F02B004F6DC2 /* tree1.json in Resources */,
+				4B69316C27B7D332004F6DC2 /* LottieLogo1.json in Resources */,
+				4B69314727B7CE64004F6DC2 /* M.json in Resources */,
+				4B69313327B7CE64004F6DC2 /* Apostrophe.json in Resources */,
+				4B2AF08A27B7829B00C50BE0 /* Assets.xcassets in Resources */,
+				4B69315127B7CE64004F6DC2 /* A.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B2AF07827B7829B00C50BE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B2AF0A227B7C87B00C50BE0 /* CustomStateView.swift in Sources */,
+				4B69317627B7EAAD004F6DC2 /* ScrollerLottieContent.swift in Sources */,
+				4B2AF08727B7829B00C50BE0 /* ContentView.swift in Sources */,
+				4B2AF08527B7829B00C50BE0 /* LottieUIExampleApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B2AF07E27B7829B00C50BE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B2AF0A327B7C87B00C50BE0 /* CustomStateView.swift in Sources */,
+				4B69317727B7EAAD004F6DC2 /* ScrollerLottieContent.swift in Sources */,
+				4B2AF08827B7829B00C50BE0 /* ContentView.swift in Sources */,
+				4B2AF08627B7829B00C50BE0 /* LottieUIExampleApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4B2AF08B27B7829B00C50BE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4B2AF08C27B7829B00C50BE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4B2AF08E27B7829B00C50BE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SM6445X39C;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devstore.LottieUIExample;
+				PRODUCT_NAME = LottieUIExample;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4B2AF08F27B7829B00C50BE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SM6445X39C;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devstore.LottieUIExample;
+				PRODUCT_NAME = LottieUIExample;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4B2AF09127B7829B00C50BE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SM6445X39C;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devstore.LottieUIExample;
+				PRODUCT_NAME = LottieUIExample;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4B2AF09227B7829B00C50BE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SM6445X39C;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devstore.LottieUIExample;
+				PRODUCT_NAME = LottieUIExample;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B2AF07327B7829B00C50BE0 /* Build configuration list for PBXProject "LottieUIExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B2AF08B27B7829B00C50BE0 /* Debug */,
+				4B2AF08C27B7829B00C50BE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B2AF08D27B7829B00C50BE0 /* Build configuration list for PBXNativeTarget "LottieUIExample (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B2AF08E27B7829B00C50BE0 /* Debug */,
+				4B2AF08F27B7829B00C50BE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B2AF09027B7829B00C50BE0 /* Build configuration list for PBXNativeTarget "LottieUIExample (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B2AF09127B7829B00C50BE0 /* Debug */,
+				4B2AF09227B7829B00C50BE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4B69317027B7E832004F6DC2 /* XCRemoteSwiftPackageReference "Scroller" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jasudev/Scroller.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4B2AF09627B782C900C50BE0 /* LottieUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LottieUI;
+		};
+		4B2AF09827B782CD00C50BE0 /* LottieUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LottieUI;
+		};
+		4B69317127B7E832004F6DC2 /* Scroller */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B69317027B7E832004F6DC2 /* XCRemoteSwiftPackageReference "Scroller" */;
+			productName = Scroller;
+		};
+		4B69317327B7E840004F6DC2 /* Scroller */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B69317027B7E832004F6DC2 /* XCRemoteSwiftPackageReference "Scroller" */;
+			productName = Scroller;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4B2AF07027B7829B00C50BE0 /* Project object */;
+}
