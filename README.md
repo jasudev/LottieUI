@@ -1,4 +1,4 @@
-# **LottieUI**
+# **LottieUI for SwiftUI**
 It is a library developed to make Lottie easy to implement. It supports iOS and macOS.
 
 [![Platforms](https://img.shields.io/badge/Platforms-iOS%20%7C%20macOS-blue?style=flat-square)](https://developer.apple.com/macOS)
