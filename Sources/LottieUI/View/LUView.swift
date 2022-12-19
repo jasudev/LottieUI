@@ -58,7 +58,7 @@ class LUView: UIView {
         switch state.type {
             /// Loads an animation model from a bundle by its name.
         case .name(let name):
-            let aniView = LottieAnimationView(animation: Animation.named(name))
+            let aniView = LottieAnimationView(animation: LottieAnimation.named(name))
             self.setupAnimation(aniView, state: state)
             self.downloaded(state: state, value: true)
             if !state.isControlEnabled {
