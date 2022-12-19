@@ -154,7 +154,7 @@ import Cocoa
 /// A wrapper view for LottieAnimationView. (for macOS)
 class LUView: NSView {
     
-    private var animationView: LottieLottieAnimationView?
+    private var animationView: LottieAnimationView?
     private var cancellables = Set<AnyCancellable>()
     
     /**
@@ -197,7 +197,7 @@ class LUView: NSView {
         switch state.type {
             /// Loads an animation model from a bundle by its name.
         case .name(let name):
-            let aniView = LottieLottieAnimationView(animation: LottieAnimation.named(name))
+            let aniView = LottieAnimationView(animation: LottieAnimation.named(name))
             self.setupAnimation(aniView, state: state)
             self.downloaded(state: state, value: true)
             if !state.isControlEnabled {
@@ -212,7 +212,7 @@ class LUView: NSView {
             }
             /// Loads a Lottie animation asynchronously from the URL.
         case .loadedFrom(let url):
-            let aniView = LottieLottieAnimationView(url: url) { error in
+            let aniView = LottieAnimationView(url: url) { error in
                 self.downloaded(state: state, value: error == nil)
                 if !state.isControlEnabled {
                     DispatchQueue.main.async {
@@ -228,7 +228,7 @@ class LUView: NSView {
             self.setupAnimation(aniView, state: state)
             /// Loads an animation from a specific filepath.
         case .filepath(let path):
-            let aniView = LottieLottieAnimationView(filePath: path)
+            let aniView = LottieAnimationView(filePath: path)
             self.setupAnimation(aniView, state: state)
             self.downloaded(state: state, value: true)
             if !state.isControlEnabled {
@@ -279,7 +279,7 @@ class LUView: NSView {
     ///   - aniView: A new LottieAnimationView object.
     ///   - state: The Lottie status information.
     ///
-    private func setupAnimation(_ aniView: LottieLottieAnimationView, state: LUStateData) {
+    private func setupAnimation(_ aniView: LottieAnimationView, state: LUStateData) {
         animationView?.removeFromSuperview()
         self.animationView = aniView
         aniView.contentMode = .scaleAspectFit
