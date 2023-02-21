@@ -57,8 +57,8 @@ class LUView: UIView {
     func setAnimation(_ state: LUStateData) {
         switch state.type {
             /// Loads an animation model from a bundle by its name.
-        case .name(let name):
-            let aniView = LottieAnimationView(animation: LottieAnimation.named(name))
+        case .name(let name, let bundle):
+            let aniView = LottieAnimationView(animation: LottieAnimation.named(name, bundle: bundle))
             self.setupAnimation(aniView, state: state)
             self.downloaded(state: state, value: true)
             if !state.isControlEnabled {
@@ -196,8 +196,8 @@ class LUView: NSView {
     func setAnimation(_ state: LUStateData) {
         switch state.type {
             /// Loads an animation model from a bundle by its name.
-        case .name(let name):
-            let aniView = LottieAnimationView(animation: LottieAnimation.named(name))
+        case .name(let name, let bundle):
+            let aniView = LottieAnimationView(animation: LottieAnimation.named(name, bundle: bundle))
             self.setupAnimation(aniView, state: state)
             self.downloaded(state: state, value: true)
             if !state.isControlEnabled {

@@ -47,7 +47,7 @@ final public class LUStateData: Equatable {
     let onDownloaded = PassthroughSubject<Bool, Never>()
     
     public init() {
-        self.type = .name("")
+        self.type = .name("", .main)
         self.speed = 1.0
         self.loopMode = .loop
         self.range = LUProgressRange()
