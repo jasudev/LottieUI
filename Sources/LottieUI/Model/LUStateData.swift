@@ -45,13 +45,17 @@ final public class LUStateData: Equatable {
     let onCompleted = PassthroughSubject<Bool, Never>()
     /// An optional completion closure to be called when the animation model has completes loading.
     let onDownloaded = PassthroughSubject<Bool, Never>()
+    /// Sets the layout of the content
+    let contentMode: UIView.ContentMode
     
     public init() {
-        self.type = .name("")
+        self.type = .name("", .main)
         self.speed = 1.0
         self.loopMode = .loop
         self.range = LUProgressRange()
+        self.contentMode = .scaleAspectFit
     }
+    
     
     /// Initialize `LUStateData`
     ///
@@ -61,13 +65,15 @@ final public class LUStateData: Equatable {
     ///   - loopMode: Defines animation loop behavior `LottieLoopMode`
     ///   - range: Plays the animation from a progress (0-1) to a progress (0-1).
     ///   - isControlEnabled: Setting value will stop the current animation. The default value is `false`
+    ///   - contentView: Sets the layout of the content. Defaults to `.scaleAspectFit`
     ///
-    public init(type: LULoadType, speed: Double = 1.0, loopMode: LottieLoopMode = .loop, range: LUProgressRange? = nil, isControlEnabled: Bool = false) {
+    public init(type: LULoadType, speed: Double = 1.0, loopMode: LottieLoopMode = .loop, range: LUProgressRange? = nil, isControlEnabled: Bool = false, contentMode: UIView.ContentMode = .scaleAspectFit) {
         self.type = type
         self.speed = speed
         self.loopMode = loopMode
         self.range = range ?? LUProgressRange()
         self.isControlEnabled = isControlEnabled
+        self.contentMode = contentMode
     }
     
     public static func == (lhs: LUStateData, rhs: LUStateData) -> Bool {
@@ -75,6 +81,7 @@ final public class LUStateData: Equatable {
         lhs.speed == rhs.speed &&
         lhs.loopMode == rhs.loopMode &&
         lhs.range == rhs.range &&
-        lhs.isControlEnabled == rhs.isControlEnabled
+        lhs.isControlEnabled == rhs.isControlEnabled &&
+        lhs.contentMode == rhs.contentMode
     }
 }

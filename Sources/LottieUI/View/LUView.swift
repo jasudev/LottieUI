@@ -57,8 +57,8 @@ class LUView: UIView {
     func setAnimation(_ state: LUStateData) {
         switch state.type {
             /// Loads an animation model from a bundle by its name.
-        case .name(let name):
-            let aniView = LottieAnimationView(animation: LottieAnimation.named(name))
+        case .name(let name, let bundle):
+            let aniView = LottieAnimationView(animation: LottieAnimation.named(name, bundle: bundle))
             self.setupAnimation(aniView, state: state)
             self.downloaded(state: state, value: true)
             if !state.isControlEnabled {
@@ -143,7 +143,7 @@ class LUView: UIView {
     private func setupAnimation(_ aniView: LottieAnimationView, state: LUStateData) {
         animationView?.removeFromSuperview()
         self.animationView = aniView
-        aniView.contentMode = .scaleAspectFit
+        aniView.contentMode = state.contentMode
         aniView.loopMode = state.loopMode
         aniView.animationSpeed = state.speed
         self.addSubview(aniView)
@@ -196,8 +196,8 @@ class LUView: NSView {
     func setAnimation(_ state: LUStateData) {
         switch state.type {
             /// Loads an animation model from a bundle by its name.
-        case .name(let name):
-            let aniView = LottieAnimationView(animation: LottieAnimation.named(name))
+        case .name(let name, let bundle):
+            let aniView = LottieAnimationView(animation: LottieAnimation.named(name, bundle: bundle))
             self.setupAnimation(aniView, state: state)
             self.downloaded(state: state, value: true)
             if !state.isControlEnabled {
@@ -282,7 +282,7 @@ class LUView: NSView {
     private func setupAnimation(_ aniView: LottieAnimationView, state: LUStateData) {
         animationView?.removeFromSuperview()
         self.animationView = aniView
-        aniView.contentMode = .scaleAspectFit
+        aniView.contentMode = state.contentMode
         aniView.loopMode = state.loopMode
         aniView.animationSpeed = state.speed
         self.addSubview(aniView)
