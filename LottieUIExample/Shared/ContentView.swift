@@ -12,11 +12,11 @@ import Scroller
 
 struct ContentView: View {
     
-    let state1 = LUStateData(type: .name("bubble1"), loopMode: .loop)
+    let state1 = LUStateData(type: .name("bubble1", .main), loopMode: .loop)
     let state2 = LUStateData(type: .loadedFrom(URL(string: "https://assets9.lottiefiles.com/packages/lf20_mniampqn.json")!), speed: 1.0, loopMode: .loop)
     let state3 = LUStateData(type: .filepath("/Users/jasu/Downloads/bubble2.json"), speed: 1.0, loopMode: .loop)
     
-    let state4 = LUStateData(type: .name("tree1"), loopMode: .loop, isControlEnabled: true)
+    let state4 = LUStateData(type: .name("tree1", .main), loopMode: .loop, isControlEnabled: true)
     let state5 = LUStateData(type: .filepath("/Users/jasu/Downloads/tree3.json"), speed: 1.0, loopMode: .loop, isControlEnabled: true)
     let state6 = LUStateData(type: .loadedFrom(URL(string: "https://assets1.lottiefiles.com/packages/lf20_wcjgoacf.json")!), speed: 1.0, loopMode: .loop, isControlEnabled: true)
     
