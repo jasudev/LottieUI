@@ -46,14 +46,14 @@ final public class LUStateData: Equatable {
     /// An optional completion closure to be called when the animation model has completes loading.
     let onDownloaded = PassthroughSubject<Bool, Never>()
     /// Sets the layout of the content
-    let contentMode: UIView.ContentMode
+    let contentMode: ContentMode
     
     public init() {
         self.type = .name("", .main)
         self.speed = 1.0
         self.loopMode = .loop
         self.range = LUProgressRange()
-        self.contentMode = .scaleAspectFit
+        self.contentMode = .fit
     }
     
     
@@ -67,7 +67,12 @@ final public class LUStateData: Equatable {
     ///   - isControlEnabled: Setting value will stop the current animation. The default value is `false`
     ///   - contentView: Sets the layout of the content. Defaults to `.scaleAspectFit`
     ///
-    public init(type: LULoadType, speed: Double = 1.0, loopMode: LottieLoopMode = .loop, range: LUProgressRange? = nil, isControlEnabled: Bool = false, contentMode: UIView.ContentMode = .scaleAspectFit) {
+    public init(type: LULoadType,
+                speed: Double = 1.0,
+                loopMode: LottieLoopMode = .loop,
+                range: LUProgressRange? = nil,
+                isControlEnabled: Bool = false,
+                contentMode: ContentMode = .fit) {
         self.type = type
         self.speed = speed
         self.loopMode = loopMode

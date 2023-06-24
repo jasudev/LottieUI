@@ -143,7 +143,7 @@ class LUView: UIView {
     private func setupAnimation(_ aniView: LottieAnimationView, state: LUStateData) {
         animationView?.removeFromSuperview()
         self.animationView = aniView
-        aniView.contentMode = state.contentMode
+        aniView.contentMode = state.contentMode == .fit ? UIView.ContentMode.scaleAspectFit : UIView.ContentMode.scaleAspectFill
         aniView.loopMode = state.loopMode
         aniView.animationSpeed = state.speed
         self.addSubview(aniView)
@@ -282,7 +282,7 @@ class LUView: NSView {
     private func setupAnimation(_ aniView: LottieAnimationView, state: LUStateData) {
         animationView?.removeFromSuperview()
         self.animationView = aniView
-        aniView.contentMode = state.contentMode
+        aniView.contentMode = state.contentMode == .fit ? LottieContentMode.scaleAspectFit : LottieContentMode.scaleAspectFill
         aniView.loopMode = state.loopMode
         aniView.animationSpeed = state.speed
         self.addSubview(aniView)
