@@ -26,7 +26,7 @@
 import Combine
 import Lottie
 
-#if os(iOS)
+#if os(iOS) || os(visionOS)
 import UIKit
 /// A wrapper view for LottieAnimationView. (for iOS)
 class LUView: UIView {

@@ -27,7 +27,7 @@ import SwiftUI
 import Combine
 import Lottie
 
-#if os(iOS)
+#if os(iOS) || os(visionOS)
 /// Tthe content view used by iOS.
 struct LUContent: UIViewRepresentable, LUStateProtocol {
     
