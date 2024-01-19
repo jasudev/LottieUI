@@ -34,6 +34,8 @@ final public class LUStateData: Equatable {
     let type: LULoadType
     /// Sets the speed of the animation playback. Defaults to 1
     let speed: Double
+    /// The desired duration for playing the animation.
+    let desiredDuration: TimeInterval?
     /// Defines animation loop behavior `LottieLoopMode`
     let loopMode: LottieLoopMode
     /// Plays the animation from a progress (0-1) to a progress (0-1).
@@ -51,6 +53,7 @@ final public class LUStateData: Equatable {
     public init() {
         self.type = .name("", .main)
         self.speed = 1.0
+        self.desiredDuration = nil
         self.loopMode = .loop
         self.range = LUProgressRange()
         self.contentMode = .fit
@@ -69,12 +72,14 @@ final public class LUStateData: Equatable {
     ///
     public init(type: LULoadType,
                 speed: Double = 1.0,
+                desiredDuration: TimeInterval? = nil,
                 loopMode: LottieLoopMode = .loop,
                 range: LUProgressRange? = nil,
                 isControlEnabled: Bool = false,
                 contentMode: ContentMode = .fit) {
         self.type = type
         self.speed = speed
+        self.desiredDuration = desiredDuration
         self.loopMode = loopMode
         self.range = range ?? LUProgressRange()
         self.isControlEnabled = isControlEnabled

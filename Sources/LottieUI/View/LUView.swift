@@ -59,13 +59,14 @@ class LUView: UIView {
             /// Loads an animation model from a bundle by its name.
         case .name(let name, let bundle):
             let aniView = LottieAnimationView(animation: LottieAnimation.named(name, bundle: bundle))
+            let loopMode = self.getLoopMode(state: state, aniView: aniView)
             self.setupAnimation(aniView, state: state)
             self.downloaded(state: state, value: true)
             if !state.isControlEnabled {
                 DispatchQueue.main.async {
                     self.animationView?.play(fromProgress: state.range.from,
                                              toProgress: state.range.to,
-                                             loopMode: state.loopMode,
+                                             loopMode: loopMode,
                                              completion: { value in
                         self.completed(state: state, value: value)
                     })
@@ -73,10 +74,15 @@ class LUView: UIView {
             }
             /// Loads a Lottie animation asynchronously from the URL.
         case .loadedFrom(let url):
-            let aniView = LottieAnimationView(url: url) { error in
+            var aniView: LottieAnimationView?
+            aniView = LottieAnimationView(url: url) { error in
+                guard let aniView = aniView else {
+                    return
+                }
                 self.downloaded(state: state, value: error == nil)
                 if !state.isControlEnabled {
                     DispatchQueue.main.async {
+                        let loopMode = self.getLoopMode(state: state, aniView: aniView)
                         self.animationView?.play(fromProgress: state.range.from,
                                                  toProgress: state.range.to,
                                                  loopMode: state.loopMode,
@@ -86,17 +92,20 @@ class LUView: UIView {
                     }
                 }
             }
-            self.setupAnimation(aniView, state: state)
+            if let aniView = aniView {
+                self.setupAnimation(aniView, state: state)
+            }
             /// Loads an animation from a specific filepath.
         case .filepath(let path):
             let aniView = LottieAnimationView(filePath: path)
+            let loopMode = self.getLoopMode(state: state, aniView: aniView)
             self.setupAnimation(aniView, state: state)
             self.downloaded(state: state, value: true)
             if !state.isControlEnabled {
                 DispatchQueue.main.async {
                     self.animationView?.play(fromProgress: state.range.from,
                                              toProgress: state.range.to,
-                                             loopMode: state.loopMode,
+                                             loopMode: loopMode,
                                              completion: { value in
                         self.completed(state: state, value: value)
                     })
@@ -108,6 +117,16 @@ class LUView: UIView {
     /// Stops the animation and resets the view to its start frame.
     func stop() {
         animationView?.stop()
+    }
+    
+    /// Gets the desired loop mode if the animation duration is set
+    func getLoopMode(state: LUStateData, aniView: LottieAnimationView) -> LottieLoopMode {
+        guard let duration = state.desiredDuration else {
+            return state.loopMode
+        }
+        
+        let loopCount = max(1, Int(ceil(duration / TimeInterval(aniView.animation?.duration ?? 0.0))))
+        return .repeat(Float(loopCount))
     }
     
     /// Updates the current size of the LottieAnimationView.
