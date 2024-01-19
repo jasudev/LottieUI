@@ -80,7 +80,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-#if os(iOS)
+#if os(iOS) || os(visionOS)
         NavigationView {
             content
                 .navigationTitle(Text("LottieUI"))
