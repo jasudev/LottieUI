@@ -6,15 +6,14 @@
 //  Copyright (c) 2022 jasu All rights reserved.
 //
 
-import SwiftUI
 import LottieUI
 import Scroller
+import SwiftUI
 
 struct ScrollerLottieContent: ScrollerContent {
-    
     var value: CGFloat = 0
     let state: LUStateData
-    
+
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .bottom) {

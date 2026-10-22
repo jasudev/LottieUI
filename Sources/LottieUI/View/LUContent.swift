@@ -23,93 +23,87 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import SwiftUI
 import Combine
 import Lottie
+import SwiftUI
 
 #if os(iOS)
-/// Tthe content view used by iOS.
-struct LUContent: UIViewRepresentable, LUStateProtocol {
-    
-    /// The Lottie status information.
-    var state: LUStateData
-    /// The size of the view to be updated.
-    var size: CGSize
-    /// The current animation time with a progress value. The default value is 0.
-    var value: CGFloat = 0
-    
-    /// Initialize `LUContent`
-    ///
-    /// - Parameters:
-    ///   - state: The Lottie status information.
-    ///   - size: The size of the view to be updated.
-    ///   - value: The current animation time with a progress value. The default value is 0.
-    ///
-    init(state: LUStateData, size: CGSize, _ value: CGFloat) {
-        self.state = state
-        self.size = size
-        self.value = value
-    }
-    
-    /// Creates the view object and configures its initial state.
-    func makeUIView(context: UIViewRepresentableContext<LUContent>) -> UIView {
-        let view = LUView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        view.setAnimation(self.state)
-        return view
-    }
-    
-    /// Updates the state of the specified view with new information from SwiftUI.
-    func updateUIView(_ uiView: UIView, context: Context) {
-        guard let view = uiView as? LUView else { return }
-        
-        /// Setting value will stop the current animation.
-        if value > 0 { state.isControlEnabled = true }
-        if state.isControlEnabled {
-            view.currentProgress = value
+    /// The content view used by iOS.
+    struct LUContent: UIViewRepresentable, LUStateProtocol {
+        /// The Lottie status information.
+        var state: LUStateData
+        /// The size of the view to be updated.
+        var size: CGSize
+        /// The current animation time with a progress value. The default value is 0.
+        var value: CGFloat = 0
+
+        /// Initialize `LUContent`
+        ///
+        /// - Parameters:
+        ///   - state: The Lottie status information.
+        ///   - size: The size of the view to be updated.
+        ///   - value: The current animation time with a progress value. The default value is 0.
+        ///
+        init(state: LUStateData, size: CGSize, _ value: CGFloat) {
+            self.state = state
+            self.size = size
+            self.value = value
+        }
+
+        /// Creates the view object and configures its initial state.
+        func makeUIView(context _: UIViewRepresentableContext<LUContent>) -> UIView {
+            let view = LUView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            view.setAnimation(state)
+            return view
+        }
+
+        /// Updates the state of the specified view with new information from SwiftUI.
+        func updateUIView(_ uiView: UIView, context _: Context) {
+            guard let view = uiView as? LUView else { return }
+            view.update(state: state)
+            if state.isControlEnabled {
+                view.currentProgress = value
+            }
         }
     }
-}
 #else
-/// The content view used by macOS.
-struct LUContent: NSViewRepresentable, LUStateProtocol {
-    
-    /// Lottie status information.
-    var state: LUStateData
-    /// The size of the view to be updated.
-    var size: CGSize
-    /// The current animation time with a progress value. The default value is 0.
-    var value: CGFloat = 0
-    
-    /// Initialize `LUContent`
-    ///
-    /// - Parameters:
-    ///   - state: The Lottie status information.
-    ///   - size: The size of the view to be updated.
-    ///   - value: The current animation time with a progress value. The default value is 0.
-    ///
-    init(state: LUStateData, size: CGSize, _ value: CGFloat) {
-        self.state = state
-        self.size = size
-        self.value = value
-    }
-    
-    /// Creates the view object and configures its initial state.
-    func makeNSView(context: NSViewRepresentableContext<LUContent>) -> NSView {
-        let view = LUView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        view.setAnimation(self.state)
-        return view
-    }
-    
-    /// Updates the state of the specified view with new information from SwiftUI.
-    func updateNSView(_ nsView: NSView, context: Context) {
-        guard let view = nsView as? LUView else { return }
-        
-        /// Setting value will stop the current animation.
-        if value > 0 { state.isControlEnabled = true }
-        if state.isControlEnabled {
-            view.currentProgress = value
+    /// The content view used by macOS.
+    struct LUContent: NSViewRepresentable, LUStateProtocol {
+        /// Lottie status information.
+        var state: LUStateData
+        /// The size of the view to be updated.
+        var size: CGSize
+        /// The current animation time with a progress value. The default value is 0.
+        var value: CGFloat = 0
+
+        /// Initialize `LUContent`
+        ///
+        /// - Parameters:
+        ///   - state: The Lottie status information.
+        ///   - size: The size of the view to be updated.
+        ///   - value: The current animation time with a progress value. The default value is 0.
+        ///
+        init(state: LUStateData, size: CGSize, _ value: CGFloat) {
+            self.state = state
+            self.size = size
+            self.value = value
         }
-        view.setSize(size)
+
+        /// Creates the view object and configures its initial state.
+        func makeNSView(context _: NSViewRepresentableContext<LUContent>) -> NSView {
+            let view = LUView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            view.setAnimation(state)
+            return view
+        }
+
+        /// Updates the state of the specified view with new information from SwiftUI.
+        func updateNSView(_ nsView: NSView, context _: Context) {
+            guard let view = nsView as? LUView else { return }
+            view.update(state: state)
+            if state.isControlEnabled {
+                view.currentProgress = value
+            }
+            view.setSize(size)
+        }
     }
-}
 #endif

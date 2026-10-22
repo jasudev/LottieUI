@@ -6,17 +6,16 @@
 //  Copyright (c) 2022 jasu All rights reserved.
 //
 
-import SwiftUI
 import LottieUI
+import SwiftUI
 
 struct CustomStateView: View {
-    
     @State private var value: CGFloat = 0
     let state: LUStateData
-    
+
     @State private var completedText: String = ""
     @State private var downloadedText: String = ""
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             HStack {
@@ -27,12 +26,12 @@ struct CustomStateView: View {
                 Text(completedText)
             }
             .frame(height: 26)
-            LottieView(state: state, value: value, onCompleted: { success in
+            LottieView(state: state, value: value, onCompleted: { _ in
                 completedText = "Completed"
-            }, onDownloaded: { success in
+            }, onDownloaded: { _ in
                 downloadedText = "Downloaded"
             })
-            Slider(value: $value, in: 0...1)
+            Slider(value: $value, in: 0 ... 1)
         }
         .font(.caption)
     }

@@ -23,17 +23,16 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import SwiftUI
 import Lottie
+import SwiftUI
 
 /// Plays the animation from a progress (0-1) to a progress (0-1).
 public struct LUProgressRange: Equatable {
-    
     /// The start progress of the animation.
     var from: AnimationProgressTime = 0.0
     /// The end progress of the animation.
     var to: AnimationProgressTime = 1.0
-    
+
     /// Plays the animation from a progress (0-1) to a progress (0-1).
     ///
     /// - Parameters:
@@ -43,9 +42,5 @@ public struct LUProgressRange: Equatable {
     public init(from: AnimationProgressTime = 0.0, to: AnimationProgressTime = 1.0) {
         self.from = from
         self.to = to
-    }
-    
-    public static func == (lhs: LUProgressRange, rhs: LUProgressRange) -> Bool {
-        return lhs.from == rhs.from && lhs.to == rhs.to
     }
 }

@@ -23,269 +23,279 @@
 //  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Combine
 import Lottie
 
 #if os(iOS)
-import UIKit
-/// A wrapper view for LottieAnimationView. (for iOS)
-class LUView: UIView {
-    
-    private var animationView: LottieAnimationView?
-    private var cancellables = Set<AnyCancellable>()
-    
-    /**
-     Sets the current animation time with a progress value.
-     Note: Setting this will stop the current animation, if any.
-     Note 2: If `animation` is nil, setting this will fallback to 0.
-     */
-    var currentProgress: AnimationProgressTime {
-        get { return animationView?.currentProgress ?? 0 }
-        set { animationView?.currentProgress = newValue }
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.setSize(self.bounds.size)
-    }
-    
-    /// Create an LottieAnimationView object.
-    ///
-    /// - Parameters:
-    ///   - state: The Lottie status information.
-    ///
-    func setAnimation(_ state: LUStateData) {
-        switch state.type {
-            /// Loads an animation model from a bundle by its name.
-        case .name(let name, let bundle):
-            let aniView = LottieAnimationView(animation: LottieAnimation.named(name, bundle: bundle))
-            self.setupAnimation(aniView, state: state)
-            self.downloaded(state: state, value: true)
-            if !state.isControlEnabled {
-                DispatchQueue.main.async {
-                    self.animationView?.play(fromProgress: state.range.from,
-                                             toProgress: state.range.to,
-                                             loopMode: state.loopMode,
-                                             completion: { value in
-                        self.completed(state: state, value: value)
-                    })
-                }
+    import UIKit
+
+    /// A wrapper view for LottieAnimationView. (for iOS)
+    class LUView: UIView {
+        private var animationView: LottieAnimationView?
+
+        /**
+         Sets the current animation time with a progress value.
+         Note: Setting this will stop the current animation, if any.
+         Note 2: If `animation` is nil, setting this will fallback to 0.
+         */
+        var currentProgress: AnimationProgressTime {
+            get { return animationView?.currentProgress ?? 0 }
+            set { animationView?.currentProgress = newValue }
+        }
+
+        override func layoutSubviews() {
+            super.layoutSubviews()
+            setSize(bounds.size)
+        }
+
+        /// Updates the animation view to reflect state changes.
+        func update(state: LUStateData) {
+            guard let animationView = animationView else {
+                setAnimation(state)
+                return
             }
-            /// Loads a Lottie animation asynchronously from the URL.
-        case .loadedFrom(let url):
-            let aniView = LottieAnimationView(url: url) { error in
-                self.downloaded(state: state, value: error == nil)
+            if !state.isControlEnabled {
+                animationView.stop()
+                animationView.play(fromProgress: state.range.from,
+                                   toProgress: state.range.to,
+                                   loopMode: state.loopMode,
+                                   completion: { [weak self] value in
+                                       self?.completed(state: state, value: value)
+                                   })
+            }
+            animationView.animationSpeed = state.speed
+            animationView.contentMode = state.contentMode == .fit ? UIView.ContentMode.scaleAspectFit : UIView.ContentMode.scaleAspectFill
+        }
+
+        /// Create an LottieAnimationView object.
+        ///
+        /// - Parameters:
+        ///   - state: The Lottie status information.
+        ///
+        func setAnimation(_ state: LUStateData) {
+            switch state.type {
+            // Loads an animation model from a bundle by its name.
+            case let .name(name, bundle):
+                let aniView = LottieAnimationView(animation: LottieAnimation.named(name, bundle: bundle))
+                setupAnimation(aniView, state: state)
+                downloaded(state: state, value: true)
                 if !state.isControlEnabled {
-                    DispatchQueue.main.async {
+                    animationView?.play(fromProgress: state.range.from,
+                                        toProgress: state.range.to,
+                                        loopMode: state.loopMode,
+                                        completion: { [weak self] value in
+                                            self?.completed(state: state, value: value)
+                                        })
+                }
+            // Loads a Lottie animation asynchronously from the URL.
+            case let .loadedFrom(url):
+                let aniView = LottieAnimationView(url: url) { [weak self] error in
+                    guard let self = self else { return }
+                    self.downloaded(state: state, value: error == nil)
+                    if !state.isControlEnabled {
                         self.animationView?.play(fromProgress: state.range.from,
                                                  toProgress: state.range.to,
                                                  loopMode: state.loopMode,
                                                  completion: { value in
-                            state.onCompleted.send(value)
-                        })
+                                                     self.completed(state: state, value: value)
+                                                 })
                     }
                 }
-            }
-            self.setupAnimation(aniView, state: state)
-            /// Loads an animation from a specific filepath.
-        case .filepath(let path):
-            let aniView = LottieAnimationView(filePath: path)
-            self.setupAnimation(aniView, state: state)
-            self.downloaded(state: state, value: true)
-            if !state.isControlEnabled {
-                DispatchQueue.main.async {
-                    self.animationView?.play(fromProgress: state.range.from,
-                                             toProgress: state.range.to,
-                                             loopMode: state.loopMode,
-                                             completion: { value in
-                        self.completed(state: state, value: value)
-                    })
+                setupAnimation(aniView, state: state)
+            // Loads an animation from a specific filepath.
+            case let .filepath(path):
+                let aniView = LottieAnimationView(filePath: path)
+                setupAnimation(aniView, state: state)
+                downloaded(state: state, value: true)
+                if !state.isControlEnabled {
+                    animationView?.play(fromProgress: state.range.from,
+                                        toProgress: state.range.to,
+                                        loopMode: state.loopMode,
+                                        completion: { [weak self] value in
+                                            self?.completed(state: state, value: value)
+                                        })
                 }
             }
         }
-    }
-    
-    /// Stops the animation and resets the view to its start frame.
-    func stop() {
-        animationView?.stop()
-    }
-    
-    /// Updates the current size of the LottieAnimationView.
-    ///
-    /// - Parameters:
-    ///   - size: Size to update.
-    ///
-    func setSize(_ size: CGSize) {
-        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        self.animationView?.frame = rect
-    }
-    
-    /// An optional completion closure to be called when the animation completes playing.
-    private func completed(state: LUStateData, value: Bool) {
-        DispatchQueue.main.async {
+
+        /// Stops the animation and resets the view to its start frame.
+        func stop() {
+            animationView?.stop()
+        }
+
+        /// Updates the current size of the LottieAnimationView.
+        ///
+        /// - Parameters:
+        ///   - size: Size to update.
+        ///
+        func setSize(_ size: CGSize) {
+            let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+            animationView?.frame = rect
+        }
+
+        /// An optional completion closure to be called when the animation completes playing.
+        private func completed(state: LUStateData, value: Bool) {
             state.onCompleted.send(value)
         }
-    }
-    
-    /// An optional completion closure to be called when the animation model has completes loading.
-    private func downloaded(state: LUStateData, value: Bool) {
-        DispatchQueue.main.async {
+
+        /// An optional completion closure to be called when the animation model has completes loading.
+        private func downloaded(state: LUStateData, value: Bool) {
             state.onDownloaded.send(value)
         }
+
+        /// After setting the LottieAnimationView property, add it to the current view.
+        ///
+        /// - Parameters:
+        ///   - aniView: A new LottieAnimationView object.
+        ///   - state: The Lottie status information.
+        ///
+        private func setupAnimation(_ aniView: LottieAnimationView, state: LUStateData) {
+            animationView?.removeFromSuperview()
+            animationView = aniView
+            aniView.contentMode = state.contentMode == .fit ? UIView.ContentMode.scaleAspectFit : UIView.ContentMode.scaleAspectFill
+            aniView.loopMode = state.loopMode
+            aniView.animationSpeed = state.speed
+            addSubview(aniView)
+        }
     }
-    
-    /// After setting the LottieAnimationView property, add it to the current view.
-    ///
-    /// - Parameters:
-    ///   - aniView: A new LottieAnimationView object.
-    ///   - state: The Lottie status information.
-    ///
-    private func setupAnimation(_ aniView: LottieAnimationView, state: LUStateData) {
-        animationView?.removeFromSuperview()
-        self.animationView = aniView
-        aniView.contentMode = state.contentMode == .fit ? UIView.ContentMode.scaleAspectFit : UIView.ContentMode.scaleAspectFill
-        aniView.loopMode = state.loopMode
-        aniView.animationSpeed = state.speed
-        self.addSubview(aniView)
-    }
-}
 #else
-import Cocoa
-/// A wrapper view for LottieAnimationView. (for macOS)
-class LUView: NSView {
-    
-    private var animationView: LottieAnimationView?
-    private var cancellables = Set<AnyCancellable>()
-    
-    /**
-     Sets the current animation time with a progress value.
-     Note: Setting this will stop the current animation, if any.
-     Note 2: If `animation` is nil, setting this will fallback to 0.
-     */
-    var currentProgress: AnimationProgressTime {
-        get { return animationView?.currentProgress ?? 0 }
-        set { animationView?.currentProgress = newValue }
-    }
-    
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
-        NotificationCenter.default
-            .publisher(for: NSWindow.didResizeNotification)
-            .subscribe(on: DispatchQueue.main)
-            .sink { [weak self] notification in
-                guard let `self` = self else { return }
-                self.setSize(self.bounds.size)
+    import Cocoa
+
+    /// A wrapper view for LottieAnimationView. (for macOS)
+    class LUView: NSView {
+        private var animationView: LottieAnimationView?
+
+        /**
+         Sets the current animation time with a progress value.
+         Note: Setting this will stop the current animation, if any.
+         Note 2: If `animation` is nil, setting this will fallback to 0.
+         */
+        var currentProgress: AnimationProgressTime {
+            get { return animationView?.currentProgress ?? 0 }
+            set { animationView?.currentProgress = newValue }
+        }
+
+        override init(frame frameRect: NSRect) {
+            super.init(frame: frameRect)
+        }
+
+        override func resizeSubviews(withOldSize oldSize: NSSize) {
+            super.resizeSubviews(withOldSize: oldSize)
+            setSize(bounds.size)
+        }
+
+        @available(*, unavailable)
+        required init?(coder _: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+
+        /// Updates the animation view to reflect state changes.
+        func update(state: LUStateData) {
+            guard let animationView = animationView else {
+                setAnimation(state)
+                return
             }
-            .store(in: &cancellables)
-    }
-    
-    override func resizeSubviews(withOldSize oldSize: NSSize) {
-        super.resizeSubviews(withOldSize: oldSize)
-        self.setSize(self.bounds.size)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    /// Create an LottieAnimationView object.
-    ///
-    /// - Parameters:
-    ///   - state: The Lottie status information.
-    ///
-    func setAnimation(_ state: LUStateData) {
-        switch state.type {
-            /// Loads an animation model from a bundle by its name.
-        case .name(let name, let bundle):
-            let aniView = LottieAnimationView(animation: LottieAnimation.named(name, bundle: bundle))
-            self.setupAnimation(aniView, state: state)
-            self.downloaded(state: state, value: true)
             if !state.isControlEnabled {
-                DispatchQueue.main.async {
-                    self.animationView?.play(fromProgress: state.range.from,
-                                             toProgress: state.range.to,
-                                             loopMode: state.loopMode,
-                                             completion: { value in
-                        self.completed(state: state, value: value)
-                    })
-                }
+                animationView.stop()
+                animationView.play(fromProgress: state.range.from,
+                                   toProgress: state.range.to,
+                                   loopMode: state.loopMode,
+                                   completion: { [weak self] value in
+                                       self?.completed(state: state, value: value)
+                                   })
             }
-            /// Loads a Lottie animation asynchronously from the URL.
-        case .loadedFrom(let url):
-            let aniView = LottieAnimationView(url: url) { error in
-                self.downloaded(state: state, value: error == nil)
+            animationView.animationSpeed = state.speed
+            animationView.contentMode = state.contentMode == .fit ? LottieContentMode.scaleAspectFit : LottieContentMode.scaleAspectFill
+        }
+
+        /// Create an LottieAnimationView object.
+        ///
+        /// - Parameters:
+        ///   - state: The Lottie status information.
+        ///
+        func setAnimation(_ state: LUStateData) {
+            switch state.type {
+            // Loads an animation model from a bundle by its name.
+            case let .name(name, bundle):
+                let aniView = LottieAnimationView(animation: LottieAnimation.named(name, bundle: bundle))
+                setupAnimation(aniView, state: state)
+                downloaded(state: state, value: true)
                 if !state.isControlEnabled {
-                    DispatchQueue.main.async {
+                    animationView?.play(fromProgress: state.range.from,
+                                        toProgress: state.range.to,
+                                        loopMode: state.loopMode,
+                                        completion: { [weak self] value in
+                                            self?.completed(state: state, value: value)
+                                        })
+                }
+            // Loads a Lottie animation asynchronously from the URL.
+            case let .loadedFrom(url):
+                let aniView = LottieAnimationView(url: url) { [weak self] error in
+                    guard let self = self else { return }
+                    self.downloaded(state: state, value: error == nil)
+                    if !state.isControlEnabled {
                         self.animationView?.play(fromProgress: state.range.from,
                                                  toProgress: state.range.to,
                                                  loopMode: state.loopMode,
                                                  completion: { value in
-                            state.onCompleted.send(value)
-                        })
+                                                     self.completed(state: state, value: value)
+                                                 })
                     }
                 }
-            }
-            self.setupAnimation(aniView, state: state)
-            /// Loads an animation from a specific filepath.
-        case .filepath(let path):
-            let aniView = LottieAnimationView(filePath: path)
-            self.setupAnimation(aniView, state: state)
-            self.downloaded(state: state, value: true)
-            if !state.isControlEnabled {
-                DispatchQueue.main.async {
-                    self.animationView?.play(fromProgress: state.range.from,
-                                             toProgress: state.range.to,
-                                             loopMode: state.loopMode,
-                                             completion: { value in
-                        self.completed(state: state, value: value)
-                    })
+                setupAnimation(aniView, state: state)
+            // Loads an animation from a specific filepath.
+            case let .filepath(path):
+                let aniView = LottieAnimationView(filePath: path)
+                setupAnimation(aniView, state: state)
+                downloaded(state: state, value: true)
+                if !state.isControlEnabled {
+                    animationView?.play(fromProgress: state.range.from,
+                                        toProgress: state.range.to,
+                                        loopMode: state.loopMode,
+                                        completion: { [weak self] value in
+                                            self?.completed(state: state, value: value)
+                                        })
                 }
             }
         }
-    }
-    
-    /// Stops the animation and resets the view to its start frame.
-    func stop() {
-        animationView?.stop()
-    }
-    
-    /// Updates the current size of the LottieAnimationView.
-    ///
-    /// - Parameters:
-    ///   - size: Size to update.
-    ///
-    func setSize(_ size: CGSize) {
-        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        self.animationView?.frame = rect
-    }
-    
-    /// An optional completion closure to be called when the animation completes playing.
-    private func completed(state: LUStateData, value: Bool) {
-        DispatchQueue.main.async {
+
+        /// Stops the animation and resets the view to its start frame.
+        func stop() {
+            animationView?.stop()
+        }
+
+        /// Updates the current size of the LottieAnimationView.
+        ///
+        /// - Parameters:
+        ///   - size: Size to update.
+        ///
+        func setSize(_ size: CGSize) {
+            let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+            animationView?.frame = rect
+        }
+
+        /// An optional completion closure to be called when the animation completes playing.
+        private func completed(state: LUStateData, value: Bool) {
             state.onCompleted.send(value)
         }
-    }
-    
-    /// An optional completion closure to be called when the animation model has completes loading.
-    private func downloaded(state: LUStateData, value: Bool) {
-        DispatchQueue.main.async {
+
+        /// An optional completion closure to be called when the animation model has completes loading.
+        private func downloaded(state: LUStateData, value: Bool) {
             state.onDownloaded.send(value)
         }
+
+        /// After setting the LottieAnimationView property, add it to the current view.
+        ///
+        /// - Parameters:
+        ///   - aniView: A new LottieAnimationView object.
+        ///   - state: The Lottie status information.
+        ///
+        private func setupAnimation(_ aniView: LottieAnimationView, state: LUStateData) {
+            animationView?.removeFromSuperview()
+            animationView = aniView
+            aniView.contentMode = state.contentMode == .fit ? LottieContentMode.scaleAspectFit : LottieContentMode.scaleAspectFill
+            aniView.loopMode = state.loopMode
+            aniView.animationSpeed = state.speed
+            addSubview(aniView)
+        }
     }
-    
-    /// After setting the LottieAnimationView property, add it to the current view.
-    ///
-    /// - Parameters:
-    ///   - aniView: A new LottieAnimationView object.
-    ///   - state: The Lottie status information.
-    ///
-    private func setupAnimation(_ aniView: LottieAnimationView, state: LUStateData) {
-        animationView?.removeFromSuperview()
-        self.animationView = aniView
-        aniView.contentMode = state.contentMode == .fit ? LottieContentMode.scaleAspectFit : LottieContentMode.scaleAspectFill
-        aniView.loopMode = state.loopMode
-        aniView.animationSpeed = state.speed
-        self.addSubview(aniView)
-    }
-}
 #endif

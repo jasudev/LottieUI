@@ -6,23 +6,22 @@
 //  Copyright (c) 2022 jasu All rights reserved.
 //
 
-import SwiftUI
 import LottieUI
 import Scroller
+import SwiftUI
 
 struct ContentView: View {
-    
     let state1 = LUStateData(type: .name("bubble1", .main), loopMode: .loop)
     let state2 = LUStateData(type: .loadedFrom(URL(string: "https://assets9.lottiefiles.com/packages/lf20_mniampqn.json")!), speed: 1.0, loopMode: .loop)
     let state3 = LUStateData(type: .filepath("/Users/jasu/Downloads/bubble2.json"), speed: 1.0, loopMode: .loop)
-    
+
     let state4 = LUStateData(type: .name("tree1", .main), loopMode: .loop, isControlEnabled: true)
     let state5 = LUStateData(type: .filepath("/Users/jasu/Downloads/tree3.json"), speed: 1.0, loopMode: .loop, isControlEnabled: true)
     let state6 = LUStateData(type: .loadedFrom(URL(string: "https://assets1.lottiefiles.com/packages/lf20_wcjgoacf.json")!), speed: 1.0, loopMode: .loop, isControlEnabled: true)
-    
+
     @State private var selected: Int = 0
     @State private var scrollerValue: CGFloat = 0
-    
+
     var content: some View {
         TabView(selection: $selected) {
             ScrollView {
@@ -49,7 +48,7 @@ struct ContentView: View {
                 Image(systemName: "scribble.variable")
                 Text("LottieUI")
             }
-            
+
             Scroller(.horizontal, showsIndicators: true, value: $scrollerValue) {
                 GeometryReader { proxy in
                     ScrollerLottieContent(value: proxy.scrollerValue(.horizontal), state: state4)
@@ -78,20 +77,19 @@ struct ContentView: View {
             }
         }
     }
-    
+
     var body: some View {
-#if os(iOS)
-        NavigationView {
+        #if os(iOS)
+            NavigationView {
+                content
+                    .navigationTitle(Text("LottieUI"))
+                    .navigationBarTitleDisplayMode(.inline)
+            }
+            .navigationViewStyle(.stack)
+        #else
             content
-                .navigationTitle(Text("LottieUI"))
-                .navigationBarTitleDisplayMode(.inline)
-        }
-        .navigationViewStyle(.stack)
-#else
-        content
-            .padding()
-#endif
-        
+                .padding()
+        #endif
     }
 }
 

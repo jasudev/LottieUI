@@ -27,21 +27,20 @@ import SwiftUI
 
 /// The type to load animation models.
 public enum LULoadType: Equatable {
-    
     /// Loads an animation model from a bundle by its name.
     case name(String, Bundle)
     /// Loads a Lottie animation asynchronously from the URL.
     case loadedFrom(URL)
     /// Loads an animation from a specific filepath.
     case filepath(String)
-    
+
     public static func == (lhs: LULoadType, rhs: LULoadType) -> Bool {
         switch (lhs, rhs) {
-        case (.name(let lhsName, let lhsBundle), .name(let rhsName, let rhsBundle)):
+        case let (.name(lhsName, lhsBundle), .name(rhsName, rhsBundle)):
             return lhsName == rhsName && lhsBundle == rhsBundle
-        case (.loadedFrom(let lhsURL), .loadedFrom(let rhsURL)):
+        case let (.loadedFrom(lhsURL), .loadedFrom(rhsURL)):
             return lhsURL == rhsURL
-        case (.filepath(let lhsPath), .filepath(let rhsPath)):
+        case let (.filepath(lhsPath), .filepath(rhsPath)):
             return lhsPath == rhsPath
         default:
             return false
